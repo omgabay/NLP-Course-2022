@@ -1,0 +1,4 @@
+{
+  "train_data":  "data/Pet_Supplies.train.json",
+  "test_data": "data/Pet_Supplies.test.json"
+}
