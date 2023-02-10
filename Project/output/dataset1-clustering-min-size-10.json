@@ -1,11 +1,11 @@
 {
     "cluster_list": [
         {
-            "cluster_name": "cluster1",
+            "cluster_name": "wear mask",
             "representative_sentences": [
-                "do i have to wear a respirator?",
+                "why aren't there respirators?",
                 "when should i wear a mask?",
-                "why aren't there respirators?"
+                "do i have to wear a respirator?"
             ],
             "requests": [
                 "i'd like a respirator",
@@ -51,10 +51,10 @@
             ]
         },
         {
-            "cluster_name": "cluster2",
+            "cluster_name": "corona virus",
             "representative_sentences": [
-                "can dogs get the corona virus?",
                 "what is the corona virus?",
+                "can dogs get the corona virus?",
                 "is there a test for the coronavirus"
             ],
             "requests": [
@@ -80,7 +80,6 @@
                 "what's the best way to prevent coronavirus?",
                 "how do i avoid coronavirus",
                 "how does coronavirus spread?",
-                "how many people total have coronavirus?",
                 "if i only have a sore throat is it coronavirus?",
                 "what is corona virus?",
                 "flu vs coronavirus",
@@ -136,7 +135,6 @@
                 "what is the corona virus",
                 "what is novel coronavirus?",
                 "i want a test for coronavirus",
-                "how many people are infected with corona virus currently in texas?",
                 "how do i avoid coronavirus",
                 "can i get corona virus from my pet?",
                 "how do i treat coronavirus?",
@@ -148,7 +146,6 @@
                 "how can i get a coronavirus test?",
                 "where can i get tested for the coronavirus in new york",
                 "sars vs corona virus?",
-                "how many people total have coronavirus?",
                 "is the coronavirus the same as mers?",
                 "i have a temperature and cough. do i have the coronavirus?",
                 "is coronavirus contagious?",
@@ -159,7 +156,6 @@
                 "origin of coronavirus",
                 "is there a vaccine for the coronavirus?",
                 "can pets contract the virus",
-                "how many people in texas have corona virus?",
                 "testing spots for coronavirus?",
                 "origin of coronavirus",
                 "how can i prevent coronavirus",
@@ -199,10 +195,10 @@
             ]
         },
         {
-            "cluster_name": "cluster3",
+            "cluster_name": "this is hateful",
             "representative_sentences": [
-                "this is hateful",
                 "i hate this",
+                "this is hateful",
                 "i hate this"
             ],
             "requests": [
@@ -220,29 +216,11 @@
             ]
         },
         {
-            "cluster_name": "cluster4",
+            "cluster_name": "paid sick",
             "representative_sentences": [
-                "is this worse than the flu?",
-                "is this worse than flue",
-                "is this the same as the flu?"
-            ],
-            "requests": [
-                "is this worse than flu",
-                "is this worse than flu",
-                "is this worse than the flu?",
-                "is this worse than flue",
-                "is this the same as the flu?",
-                "is this worse than the flu?",
-                "is this worse than flue",
-                "is this worse than flue"
-            ]
-        },
-        {
-            "cluster_name": "cluster5",
-            "representative_sentences": [
-                "how long can i get [paid sick leave",
+                "paid sick leave",
                 "can i get paid sick leave",
-                "paid sick leave"
+                "how long can i get [paid sick leave"
             ],
             "requests": [
                 "what if i don't have paid sick leave?",
@@ -276,11 +254,11 @@
             ]
         },
         {
-            "cluster_name": "cluster6",
+            "cluster_name": "tested for covid",
             "representative_sentences": [
                 "where can i get tested?",
-                "has the cause of covid-19 been identified?",
-                "what are the symptoms"
+                "what are the symptoms",
+                "has the cause of covid-19 been identified?"
             ],
             "requests": [
                 "what is covid",
@@ -411,7 +389,6 @@
                 "where can i get a test kit",
                 "where cani get tested",
                 "what is covid19",
-                "i'm a doctor how can i help?",
                 "where can i get tested for cover-19",
                 "how long are people infected with covid-19 before they are symptomatic?",
                 "how many people have covid-19 in the whole world?",
@@ -486,7 +463,6 @@
                 "what is covid-19",
                 "should i see a doctor if i am showing the symptoms?",
                 "where do i go for covid19 testing?",
-                "i have a fever. should i go to the hospital?",
                 "what are the symptoms of the disease?",
                 "should i get tested if i do not have symptoms but think i've been exposed?",
                 "what are the symptoms?",
@@ -603,74 +579,11 @@
             ]
         },
         {
-            "cluster_name": "cluster7",
-            "representative_sentences": [
-                "can i go to the grocery store or will i catch corona",
-                "can i go to the grocery store",
-                "can we go to the store?"
-            ],
-            "requests": [
-                "can we go to the store?",
-                "can i go to grocery stores",
-                "can i go to the store.",
-                "can we go to the store?",
-                "can i go to the grocery store?",
-                "is it okay to go grocery shopping?",
-                "is it safe to go to the grocery store?",
-                "can i go to the store.",
-                "can i go to the grocery store",
-                "am i allowed to go to the grocery store?",
-                "can i go to grocery stores",
-                "can i still go to the grocery store?",
-                "can i still go grocery shopping",
-                "can i go to the grocery store or will i catch corona",
-                "is it ok for me to go to the grocery store"
-            ]
-        },
-        {
-            "cluster_name": "cluster8",
-            "representative_sentences": [
-                "how many people are infected in the united states",
-                "number of infected",
-                "how many people are infected"
-            ],
-            "requests": [
-                "how many people are infected",
-                "how many people are infected in the united states",
-                "how many ppl are infected in the us?",
-                "number of infected",
-                "how many people are infected",
-                "number of infected",
-                "number of infected",
-                "how many people are infected",
-                "number of infected"
-            ]
-        },
-        {
-            "cluster_name": "cluster9",
-            "representative_sentences": [
-                "i have a sore throat",
-                "ihave sore throat",
-                "i have sore throat, is it coronavirus?"
-            ],
-            "requests": [
-                "i have sore throat",
-                "i have a sore throat",
-                "i have a sore throat",
-                "ihave sore throat",
-                "ihave sore throat",
-                "i have a sore throat",
-                "ihave sore throat",
-                "ihave sore throat",
-                "i have sore throat, is it coronavirus?"
-            ]
-        },
-        {
-            "cluster_name": "cluster10",
+            "cluster_name": "self quarantine",
             "representative_sentences": [
                 "is anyone allowed to visit during quarantine?",
-                "how long will we have to self quarantine?",
-                "what can i do when i'm in quarantine?"
+                "what can i do when i'm in quarantine?",
+                "how long will we have to self quarantine?"
             ],
             "requests": [
                 "how long do i have to stay in quarantine?",
@@ -739,11 +652,11 @@
             ]
         },
         {
-            "cluster_name": "cluster11",
+            "cluster_name": "apply for unemployment",
             "representative_sentences": [
                 "how do i apply for unemployment",
                 "i have a question about unemployment",
-                "how do i apply for unemployment benefits due to covid-19?"
+                "how do i apply for unemployment because of coid-19"
             ],
             "requests": [
                 "how to apply for unemployment",
@@ -768,29 +681,36 @@
             ]
         },
         {
-            "cluster_name": "cluster12",
+            "cluster_name": "go to the grocery",
             "representative_sentences": [
-                "can pets get covid",
-                "can dogs get covid19?",
-                "can pets get covid"
+                "can we go to the store?",
+                "can i go to the grocery store",
+                "can i go to the grocery store or will i catch corona"
             ],
             "requests": [
-                "can pets get covid",
-                "can dogs get covid19?",
-                "can dogs get covid19?",
-                "can dogs get covid19?",
-                "can dogs get covid19?",
-                "can pets get covid",
-                "can pets get covid",
-                "can pets get covid"
+                "can we go to the store?",
+                "can i go to grocery stores",
+                "can i go to the store.",
+                "can we go to the store?",
+                "can i go to the grocery store?",
+                "is it okay to go grocery shopping?",
+                "is it safe to go to the grocery store?",
+                "can i go to the store.",
+                "can i go to the grocery store",
+                "am i allowed to go to the grocery store?",
+                "can i go to grocery stores",
+                "can i still go to the grocery store?",
+                "can i still go grocery shopping",
+                "can i go to the grocery store or will i catch corona",
+                "is it ok for me to go to the grocery store"
             ]
         },
         {
-            "cluster_name": "cluster13",
+            "cluster_name": "go back to school",
             "representative_sentences": [
-                "are schools open?",
                 "are my schools closed",
-                "when can my kids go back to school"
+                "when can my kids go back to school",
+                "are schools open?"
             ],
             "requests": [
                 "when can my high school senior go back to school",
@@ -874,10 +794,10 @@
             ]
         },
         {
-            "cluster_name": "cluster14",
+            "cluster_name": "who you are",
             "representative_sentences": [
-                "who are you",
                 "who you are?",
+                "who are you",
                 "who you are?"
             ],
             "requests": [
@@ -895,45 +815,19 @@
             ]
         },
         {
-            "cluster_name": "cluster15",
-            "representative_sentences": [
-                "when should i go to the doctor?",
-                "can i go to the hospital?",
-                "when do i call a doctor"
-            ],
-            "requests": [
-                "when should i go to the hospital?",
-                "when should i go to the doctor?",
-                "when should i go to a doctor?",
-                "can i go to the hospital?",
-                "when did i need to call the doctor?",
-                "when do i call a doctor",
-                "should i make an appointment with my dr?",
-                "what should i do if the hospital won't take me in?",
-                "how do i know whether to go to the doctor?",
-                "can i go to the hospital?",
-                "should i go to the doctor now",
-                "should i go to the hospital",
-                "when should i call a doctor"
-            ]
-        },
-        {
-            "cluster_name": "cluster16",
+            "cluster_name": "infected if receive",
             "representative_sentences": [
                 "i think i'm infected",
                 "how can i get infected?",
-                "i think i might have the virus."
+                "is it possible to get infected from the infected person the next day?"
             ],
             "requests": [
-                "i suspect i have the virus who can i call?",
                 "how can i get infected?",
                 "i think i'm infected",
                 "i think i'm infected",
                 "can i get infected if i receive a package",
                 "how can i get infected?",
                 "i think i'm infected",
-                "i think i might have the virus.",
-                "will i throw up if i have the virus?",
                 "is it possible to get infected from the infected person the next day?",
                 "i think i'm infected",
                 "how can i get infected?",
@@ -941,51 +835,39 @@
             ]
         },
         {
-            "cluster_name": "cluster17",
+            "cluster_name": "go to the doctor",
             "representative_sentences": [
-                "where can i get screened?",
-                "how do i get screened?",
-                "where should i go to get screened"
+                "when should i go to the hospital?",
+                "when should i go to the doctor?",
+                "when do i call a doctor"
             ],
             "requests": [
-                "how can i get screened",
-                "where can i get screened?",
-                "how do i get screened?",
-                "how do i get screened?",
-                "where can i get screened?",
-                "how do i get screened?",
-                "where can i get screened?",
-                "where should i go to get screened",
-                "how can i get screened"
-            ]
-        },
-        {
-            "cluster_name": "cluster18",
-            "representative_sentences": [
-                "washing your hands effectively",
-                "how do i wash my hands properly?",
-                "how often should i wash my hands?"
-            ],
-            "requests": [
-                "washing your hands effectively",
-                "how often should i wash my hands?",
-                "washing your hands effectively",
-                "washing your hands effectively",
-                "washing your hands effectively",
-                "how to wash your hands properly?",
-                "how should i properly wash my hands?",
-                "how do i wash my hands properly?"
+                "when should i go to the hospital?",
+                "when should i go to the doctor?",
+                "when should i go to a doctor?",
+                "i'm a doctor how can i help?",
+                "when did i need to call the doctor?",
+                "when do i call a doctor",
+                "should i make an appointment with my dr?",
+                "how do i know whether to go to the doctor?",
+                "should i go to the doctor now",
+                "should i go to the hospital",
+                "when should i call a doctor"
             ]
         }
     ],
     "unclustered": [
         "i was tested yesterday when do i hear back?",
+        "i suspect i have the virus who can i call?",
+        "is this worse than flu",
         "are there any cases near me",
         "how can one know if they have been infected?",
         "i'm having respiratory problems",
         "can i return to the united states?",
         "how many people have contracted the virus in pennysylvania",
+        "how many people are infected",
         "i can't go to work.  can i get unemployment?",
+        "i have sore throat",
         "how can i avoid getting sick?",
         "what does the who do?",
         "what can you do",
@@ -1003,16 +885,20 @@
         "what can you do",
         "how dangerous is this?",
         "how can i lower my temperature if i have the coronavirus?",
+        "how many people are infected in the united states",
         "connect me to someone",
         "what can i do if i lose my job?",
         "how do i ensure my family is safe?",
         "does alcohol kill the coronavirus?",
+        "can pets get covid",
         "what medicines work best",
         "is covid dangerous to pregnant women?",
+        "how many ppl are infected in the us?",
         "can i protect myself by drinking alcohol",
         "when does covid vacation end?",
         "how long does the virus last",
         "i'm in a covid-free area can i come back to the united states?",
+        "number of infected",
         "do i need to disinfect my cell phone when i get home",
         "can i test myself?",
         "what is the mortality rate of covid-19",
@@ -1057,9 +943,11 @@
         "i want to talk to someone.",
         "i'm having respiratory problems",
         "how do you protect yourself?",
+        "can dogs get covid19?",
         "are grocery stores still open",
         "i want to be transferred",
         "what should i do",
+        "how many people total have coronavirus?",
         "how do i clean my home properly?",
         "what is the best prevention?",
         "i need help",
@@ -1071,7 +959,9 @@
         "how many people in the world have died?",
         "what is a pandemic?",
         "are my kids going to die?",
+        "can dogs get covid19?",
         "they closed my school and i have nowhere to work.",
+        "how can i get screened",
         "everything is horrible",
         "how do i get rid of germs at my home",
         "who is in danger",
@@ -1102,6 +992,7 @@
         "i need help",
         "are the local parks open?",
         "what can i do if i lose my job",
+        "how many people are infected",
         "are the local parks open?",
         "i don't like this",
         "my throat hurts and i have a headache as well",
@@ -1138,6 +1029,7 @@
         "incubation period of coronavirus?",
         "where are cases?",
         "is it safe to go outside?",
+        "i have a sore throat",
         "go to hell",
         "a national emergency was declared in the united states. what does this mean?",
         "i want to talk to a person.",
@@ -1177,6 +1069,7 @@
         "are the national parks closed?",
         "my child has a high fever and is coughing. what should i do?",
         "should i avoid people?",
+        "washing your hands effectively",
         "are colleges open",
         "what are some good tips for prevention?",
         "returning from abroad",
@@ -1199,15 +1092,19 @@
         "do i need lysol wipes?",
         "should i feel safe going to the movies?",
         "connect me to someone",
+        "i think i might have the virus.",
+        "is this worse than flu",
         "will graduations be pushed back?",
         "who is most at risk",
         "what is the first symptom",
+        "i have a sore throat",
         "how many cases are there in texas?",
         "i want to talk to an agent",
         "how are you",
         "can i go outside",
         "events and large gatherings",
         "should i cancel my flight to denver?",
+        "how often should i wash my hands?",
         "is hs 123 open?",
         "are my kids going to die?",
         "daughter is studying abroad what do we do?",
@@ -1215,8 +1112,10 @@
         "what does breathlessness look like",
         "how do i know if i have this thing",
         "does the virus spread thru surfaces",
+        "will i throw up if i have the virus?",
         "are the national parks closed?",
         "does eating garlic help?",
+        "number of infected",
         "how long before i get symptons?",
         "i am coughing.  should i call my doctor?",
         "yes it is",
@@ -1225,6 +1124,8 @@
         "what cleaning methods kill the coronavirus?",
         "show me the list of high-risk countries.",
         "do i get paid leave time",
+        "can dogs get covid19?",
+        "can i go to the hospital?",
         "the hospital sent me home because of a lack of beds.",
         "i am abroad who should i contact?",
         "how long is teaching on hold?",
@@ -1234,6 +1135,7 @@
         "what is the mortality rate of the virus?",
         "what population groups are most at risk?",
         "is it dangerous to go outside?",
+        "number of infected",
         "can you help me?",
         "am i going to die",
         "how is it going",
@@ -1246,18 +1148,24 @@
         "can i leave for an exchange trip?",
         "what does the who do?",
         "everything is horrible",
+        "is this worse than the flu?",
+        "where can i get screened?",
         "am i able to work from my home office?",
         "can i test myself?",
         "how long does it take to get unemployment",
+        "washing your hands effectively",
         "can i get infected through a package from china",
         "how long can i get unemployment?",
         "i'm hanging up",
         "the hospital is full and they sent me home.",
         "effective cleaning and hand washing techqniques",
+        "how many people are infected with corona virus currently in texas?",
+        "ihave sore throat",
         "how long does the disease last?",
         "i need help",
         "this is crap",
         "how dangerous is this?",
+        "is this worse than flue",
         "how is a pandemic different from an epidemic?",
         "how do i stay safe",
         "prevent the spread of the virus",
@@ -1270,6 +1178,7 @@
         "what is the maximum number of people allowed to meet right now?",
         "i am currently traveling out of the country. who should i contact?",
         "are people infected in my city ?",
+        "washing your hands effectively",
         "i need help",
         "what can i do to stay safe",
         "describe shortness of breath",
@@ -1288,11 +1197,14 @@
         "how long does it last",
         "which countries have been affected?",
         "is graduation delayed?",
+        "ihave sore throat",
         "how many people are sick throughout the world?",
         "events and large gatherings",
         "can i go outside?",
         "where do people get protective masks or disinfectants?",
         "which countries are more of a risk?",
+        "how many people total have coronavirus?",
+        "what should i do if the hospital won't take me in?",
         "can i travel for work?",
         "what position does the who have?",
         "will texas provide paid sick leave",
@@ -1300,6 +1212,7 @@
         "what grocery store in keller is open?",
         "does the sun kill coronavirus?",
         "what parks are open?",
+        "how do i get screened?",
         "the son is on an exchange trip",
         "can i go outside",
         "is graduation delayed?",
@@ -1309,6 +1222,7 @@
         "what has our government already done to reduce the risk of spreading the disease",
         "how do i protect myself?",
         "how many people have the virus in our county",
+        "i have a fever. should i go to the hospital?",
         "what should i do to avoid getting sick?",
         "i have a burning feeling in my chest",
         "all the stores are out of disinfecting wipes, what do i do?",
@@ -1319,6 +1233,7 @@
         "returning from abroad",
         "what groups are most at risk",
         "how long should i quarrantine?",
+        "can dogs get covid19?",
         "i have a fever",
         "how long is the incubation period?",
         "can the government close public places?",
@@ -1336,12 +1251,17 @@
         "do we have enough protective measures?",
         "how is it going",
         "if i have syptoms, how long should i quartine for?",
+        "can pets get covid",
+        "how many people are infected",
+        "can pets get covid",
         "everything is horrible",
         "will i get paid leave?",
         "do i need to do both?",
         "what are symtoms?",
         "can i work from home?",
+        "how many people in texas have corona virus?",
         "what are symptoms of coronvirus",
+        "i have a sore throat",
         "do i get paid leave time",
         "do i need lysol wipes?",
         "i have headache and sore throat ..what should i do ?",
@@ -1355,6 +1275,7 @@
         "what should i do",
         "is hs 123 open?",
         "how does this work",
+        "washing your hands effectively",
         "i don't like this",
         "is the government legally allowed to close shops and restaurants?",
         "should i spray myself or my kids with disinfectant?",
@@ -1366,6 +1287,7 @@
         "are events being shut down?",
         "can medication be used to reduce fever?",
         "am i sick",
+        "how to wash your hands properly?",
         "i'm working at a school that's closed now. what should i do?",
         "who to contact when i'm in the high risk area",
         "why is the government shutting down my event?",
@@ -1379,14 +1301,18 @@
         "will there be school in the summer?",
         "do i need lysol wipes?",
         "returning from abroad",
+        "how do i get screened?",
+        "ihave sore throat",
         "when is school back in session?",
         "how long does it last?",
+        "can pets get covid",
         "how long does the virus last",
         "what is a pandemic?",
         "will there be exams in the summer?",
         "can i travel for work?",
         "connect me to someone",
         "how many people have the virus?",
+        "where can i get screened?",
         "is there a nationwide curfew?",
         "how is flu different from corpnavirus",
         "my child is coughing. should i be worried?",
@@ -1408,10 +1334,15 @@
         "how to distinguish it from a common cold.",
         "how do i catch the virus?",
         "what medicines work best",
+        "can i go to the hospital?",
         "when will the national emergency end?",
         "i'm hanging up",
+        "number of infected",
+        "is this the same as the flu?",
+        "is this worse than the flu?",
         "can i go outside?",
         "when does covid vacation end?",
+        "is this worse than flue",
         "is covid transmissible from animals?",
         "is it possible to detect the disease during the incubation period?",
         "how does the infection spread",
@@ -1431,10 +1362,12 @@
         "what opinion does the world health organization (who) have on next steps?",
         "are there any cases near me",
         "should i change my travel plans?",
+        "how do i get screened?",
         "i want to help with babysitting.",
         "can i go outside",
         "incubation period of coronavirus?",
         "how are you",
+        "is this worse than flue",
         "how long do symptons take to develop ?",
         "where are cases?",
         "what is the most effective prevention?",
@@ -1451,6 +1384,7 @@
         "how many people ar sick in the us?",
         "does the sun kill coronavirus?",
         "i'm hanging up",
+        "how should i properly wash my hands?",
         "i need medicine. can i go to the store?",
         "how long does the virus last?",
         "does eating garlic help?",
@@ -1462,12 +1396,17 @@
         "what medicine work best for treatment ?",
         "is hs 123 open?",
         "do i have to use bleach to kill coronavirus?",
+        "where can i get screened?",
+        "ihave sore throat",
         "when will the nhl return?",
+        "where should i go to get screened",
         "whats the difference between cleaning and disinfecting?",
         "is it possible to get infected with coronavirus if i have my goods shipped from chinese stores?",
+        "i have sore throat, is it coronavirus?",
         "how long does the corona virus last?",
         "how do i stay safe",
         "is a headache a symptom of the coronavirus?",
+        "how do i wash my hands properly?",
         "will i get a refund for a ticket i purchased?",
         "how do i know if my concert is cancelled?",
         "i feel congested and have a fever",
@@ -1503,6 +1442,7 @@
         "what is the hospital capacity for covid 19 patients?",
         "how long does it last",
         "i'm hanging up",
+        "how can i get screened",
         "can i visit relatives in another state?",
         "what are the risky countries?",
         "what can i ask you",
