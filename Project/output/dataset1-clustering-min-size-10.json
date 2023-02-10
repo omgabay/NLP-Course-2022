@@ -3,9 +3,9 @@
         {
             "cluster_name": "wear mask",
             "representative_sentences": [
-                "why aren't there respirators?",
                 "when should i wear a mask?",
-                "do i have to wear a respirator?"
+                "do i have to wear a respirator?",
+                "why aren't there respirators?"
             ],
             "requests": [
                 "i'd like a respirator",
@@ -54,7 +54,7 @@
             "cluster_name": "corona virus",
             "representative_sentences": [
                 "what is the corona virus?",
-                "can dogs get the corona virus?",
+                "can pets get the virus",
                 "is there a test for the coronavirus"
             ],
             "requests": [
@@ -218,9 +218,9 @@
         {
             "cluster_name": "paid sick",
             "representative_sentences": [
-                "paid sick leave",
                 "can i get paid sick leave",
-                "how long can i get [paid sick leave"
+                "duration of paid sick leave?",
+                "paid sick leave"
             ],
             "requests": [
                 "what if i don't have paid sick leave?",
@@ -256,9 +256,9 @@
         {
             "cluster_name": "tested for covid",
             "representative_sentences": [
+                "has the cause of covid-19 been identified?",
                 "where can i get tested?",
-                "what are the symptoms",
-                "has the cause of covid-19 been identified?"
+                "what are the symptoms"
             ],
             "requests": [
                 "what is covid",
@@ -581,8 +581,8 @@
         {
             "cluster_name": "self quarantine",
             "representative_sentences": [
-                "is anyone allowed to visit during quarantine?",
                 "what can i do when i'm in quarantine?",
+                "is anyone allowed to visit during quarantine?",
                 "how long will we have to self quarantine?"
             ],
             "requests": [
@@ -655,8 +655,8 @@
             "cluster_name": "apply for unemployment",
             "representative_sentences": [
                 "how do i apply for unemployment",
-                "i have a question about unemployment",
-                "how do i apply for unemployment because of coid-19"
+                "how do i apply for unemployment because of coid-19",
+                "i have a question about unemployment"
             ],
             "requests": [
                 "how to apply for unemployment",
@@ -683,8 +683,8 @@
         {
             "cluster_name": "go to the grocery",
             "representative_sentences": [
-                "can we go to the store?",
                 "can i go to the grocery store",
+                "can we go to the store?",
                 "can i go to the grocery store or will i catch corona"
             ],
             "requests": [
@@ -817,8 +817,8 @@
         {
             "cluster_name": "infected if receive",
             "representative_sentences": [
-                "i think i'm infected",
                 "how can i get infected?",
+                "i think i'm infected",
                 "is it possible to get infected from the infected person the next day?"
             ],
             "requests": [
@@ -837,8 +837,8 @@
         {
             "cluster_name": "go to the doctor",
             "representative_sentences": [
-                "when should i go to the hospital?",
-                "when should i go to the doctor?",
+                "should i go to the hospital",
+                "when should i go to a doctor?",
                 "when do i call a doctor"
             ],
             "requests": [
