@@ -51,14 +51,14 @@ def suggest_topic(cluster):
     heading = None  # holds the current best heading 
     for count, ngram in ngram_sorted:
         if heading is not None and float(count)/heading[0] < 0.7:
-            print(f'existing after seeing "{ngram}" with count ratio {float(count)/heading[0]}')
+            print(f'existing after seeing "{ngram}" final="{heading[1]}" count ratio {float(count)/heading[0]}')
             return
 
         tokenized_ngram = nltk.word_tokenize(ngram)
         word_count = len(tokenized_ngram)
         pos_tags = [tagging[1] for tagging in nltk.pos_tag(tokenized_ngram)]
         if tuple(pos_tags) in possible_pos_tags:    
-            if heading is None or word_count > heading[2]:     
+            if heading is None:     
                 print(f'possible heading "{ngram}" counted {count} tokenized:{tokenized_ngram}  pos tags: {pos_tags}')
                 cluster["cluster_name"] = ngram        
                 heading = (count,ngram,word_count)
