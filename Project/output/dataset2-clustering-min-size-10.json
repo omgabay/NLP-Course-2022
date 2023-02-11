@@ -3,7 +3,7 @@
         {
             "cluster_name": "talk slower",
             "representative_sentences": [
-                "please increase the speed of your speech, it is too slow",
+                "can you slow down your speech",
                 "can i get you to talk at a slightly faster rate",
                 "please stop talking"
             ],
@@ -276,9 +276,9 @@
         {
             "cluster_name": "car maintenance",
             "representative_sentences": [
-                "i have to schedule some car maintenance",
+                "i require a car maintenance",
                 "where can i schedule to get my tires checked out",
-                "can i make an appointment to get my tires checked"
+                "i need to schedule car maintenance"
             ],
             "requests": [
                 "help me find somewhere to schedule a check up on my car's tires",
@@ -363,8 +363,8 @@
             "cluster_name": "vacation request",
             "representative_sentences": [
                 "please go through my reminder list and tell me what's on it",
-                "i would like to know what today's date is",
-                "can you see if i have any vacation days available for a request"
+                "can you see if i have any vacation days available for a request",
+                "i would like to know what today's date is"
             ],
             "requests": [
                 "can you give me an overview of what march 23 will look like for me",
@@ -2072,8 +2072,8 @@
             "cluster_name": "use male",
             "representative_sentences": [
                 "use a male voice now",
-                "you need to change your accent to the male british one",
-                "switch over to the female voice"
+                "switch over to the female voice",
+                "you need to change your accent to the male british one"
             ],
             "requests": [
                 "the male voice please",
@@ -2315,8 +2315,8 @@
             "cluster_name": "tire pressure",
             "representative_sentences": [
                 "do my tires have enough air in them",
-                "what is the pressure of my tires",
-                "what is the tire pressure in my car"
+                "how's my tire pressure",
+                "how's the air pressure in my tires"
             ],
             "requests": [
                 "what is the pressure of my tires",
@@ -2517,9 +2517,9 @@
         {
             "cluster_name": "socket converter",
             "representative_sentences": [
+                "are socket converters necessary in england",
                 "do they use any special type of plug in spain that you need a converter for",
-                "do i need a socket converter if i'm going to be in sweden",
-                "are socket converters necessary in england"
+                "do i need a socket converter if i'm going to be in sweden"
             ],
             "requests": [
                 "are socket converters necessary in england",
@@ -2592,9 +2592,9 @@
         {
             "cluster_name": "oil change",
             "representative_sentences": [
+                "can you tell me how much gas is in my tank",
                 "when do i need to change my oil",
-                "what type of gas do i need to use in this car",
-                "can you tell me how much gas is in my tank"
+                "what type of gas do i need to use in this car"
             ],
             "requests": [
                 "which fuel does my car take",
@@ -3225,9 +3225,9 @@
         {
             "cluster_name": "credit card",
             "representative_sentences": [
-                "i would like to know the limit for my credit",
-                "what is the process i need to follow to get a new credit card",
-                "i have a lot of points saved up from my credit card rewards but don't know how to redeem them"
+                "do i have options on how to improve my credit score",
+                "when will i get a replacement card for a lost one",
+                "if i want to use my credit card points what do i do"
             ],
             "requests": [
                 "how can i find a new credit card to apply to",
@@ -4246,8 +4246,8 @@
         {
             "cluster_name": "bank account",
             "representative_sentences": [
-                "if i plan on travelling to this country, do i need a visa",
                 "i'd like to put a freeze on my bank account",
+                "if i plan on travelling to this country, do i need a visa",
                 "i'll soon be travelling internationally; could you let my bank know"
             ],
             "requests": [
@@ -4613,8 +4613,8 @@
             "cluster_name": "please lock",
             "representative_sentences": [
                 "check if the doors are locked",
-                "lock all the doors",
-                "engage all the door locks"
+                "please lock the doors",
+                "lock all the doors"
             ],
             "requests": [
                 "remember to lock the doors",
@@ -4650,9 +4650,9 @@
         {
             "cluster_name": "online order",
             "representative_sentences": [
+                "i need to track the status of my order",
                 "has my order been shipped",
-                "is my order on its way or what's going on",
-                "track my order"
+                "is my order on its way or what's going on"
             ],
             "requests": [
                 "has my order arrived yet",
@@ -4827,9 +4827,9 @@
         {
             "cluster_name": "convert inches",
             "representative_sentences": [
-                "what is 2 inches in meters",
                 "how many centimeters are in 4 inches",
-                "how can i convert centimeters to inches"
+                "how can i convert centimeters to inches",
+                "what is 2 inches in meters"
             ],
             "requests": [
                 "convert inch to cm",
@@ -5330,8 +5330,8 @@
             "cluster_name": "factory settings",
             "representative_sentences": [
                 "reset the factory settings if possible",
-                "go back to the original settings now",
-                "switch back to factory settings"
+                "switch back to factory settings",
+                "go back to the original settings now"
             ],
             "requests": [
                 "get my back to factory settings",
@@ -5566,9 +5566,9 @@
         {
             "cluster_name": "flight ab123",
             "representative_sentences": [
-                "do you know where my luggage is",
                 "my luggage appears to be lost",
-                "i was on delta flight ab123 out of new york and i can't find my luggage"
+                "i was on delta flight ab123 out of new york and i can't find my luggage",
+                "do you know where my luggage is"
             ],
             "requests": [
                 "my luggage appears to be missing",
@@ -5753,9 +5753,9 @@
         {
             "cluster_name": "state taxes",
             "representative_sentences": [
+                "how do i pay my electric bill",
                 "what's the amount of taxes for my income",
-                "how can i pay my bill",
-                "how do i pay my electric bill"
+                "how can i pay my bill"
             ],
             "requests": [
                 "whats the total of my federal taxes",
@@ -6010,9 +6010,9 @@
         {
             "cluster_name": "today weather",
             "representative_sentences": [
-                "will it rain today",
+                "can you tell me the weather forecast",
                 "what's the weather",
-                "i want to know the weather forecast for today"
+                "will it rain today"
             ],
             "requests": [
                 "when is the next rain chance",
@@ -6186,9 +6186,9 @@
         {
             "cluster_name": "please stop doing that",
             "representative_sentences": [
-                "stop it now!",
                 "stop doing that",
-                "please stop it"
+                "please stop it",
+                "stop it now!"
             ],
             "requests": [
                 "please stop it",
@@ -6272,8 +6272,8 @@
             "cluster_name": "meaning of life",
             "representative_sentences": [
                 "what do you think the purpose of life is",
-                "can you tell me, what is the meaning of life",
-                "what is life's meaning"
+                "what is life's meaning",
+                "can you tell me what the meaning of life is"
             ],
             "requests": [
                 "what's lifes meaning",
@@ -6453,9 +6453,9 @@
         {
             "cluster_name": "pto request",
             "representative_sentences": [
-                "i want to put in a pto request for march 1-8",
-                "what amount of pto days do i have left",
-                "can you set up a pto request for me for march 20th to april 12th"
+                "how much pto do i have left",
+                "can you put in a pto request for me from march 1-7",
+                "what number of pto days do i have left"
             ],
             "requests": [
                 "it it possible to take pto from the 8th to the 11th",
@@ -6590,8 +6590,8 @@
         {
             "cluster_name": "random fact",
             "representative_sentences": [
-                "tell me a fact",
                 "tell me a random fact",
+                "tell me a fact",
                 "lets hear a fact"
             ],
             "requests": [
@@ -6613,8 +6613,8 @@
             "cluster_name": "word for dog",
             "representative_sentences": [
                 "dog in spanish",
-                "what's the spanish word for dog",
-                "english to spanish for dog"
+                "english to spanish for dog",
+                "what's the spanish word for dog"
             ],
             "requests": [
                 "english to spanish for dog",
@@ -6632,8 +6632,8 @@
         {
             "cluster_name": "cancel that request",
             "representative_sentences": [
-                "nevermind, cancel that",
                 "can you cancel",
+                "nevermind, cancel that",
                 "cancel that last command"
             ],
             "requests": [
@@ -6700,8 +6700,8 @@
         {
             "cluster_name": "play ludacris",
             "representative_sentences": [
-                "play music by ludacris",
                 "play ludacris hits",
+                "play music by ludacris",
                 "play ludacris hits"
             ],
             "requests": [
@@ -6720,9 +6720,9 @@
         {
             "cluster_name": "weather in seattle",
             "representative_sentences": [
-                "how is the weather looking in seattle",
                 "how is the weather in seattle",
-                "what is the weather forecast for seattle"
+                "what is the weather forecast for seattle",
+                "how is the weather looking in seattle"
             ],
             "requests": [
                 "what is the weather outlook for seattle",
@@ -6740,9 +6740,9 @@
         {
             "cluster_name": "flight dl123",
             "representative_sentences": [
+                "where is flight dl123",
                 "will flight dl123 be on time",
-                "let me know the status of flight dl123",
-                "where is flight dl123"
+                "let me know the status of flight dl123"
             ],
             "requests": [
                 "has flight dl123 landed",
@@ -6801,9 +6801,9 @@
         {
             "cluster_name": "plug type",
             "representative_sentences": [
-                "what kind of plug is used in england",
+                "what kind of plug is used in japan",
                 "what type of plug does the country use",
-                "what kind of plug is used in japan"
+                "what kind of plug is used in england"
             ],
             "requests": [
                 "tell me the plug type that is used in scotland",
@@ -6853,9 +6853,9 @@
         {
             "cluster_name": "get an uber",
             "representative_sentences": [
-                "i need an uber please",
-                "i need an uber to the movies for me and 5 other people",
-                "i need an uber to come to my work at 5pm for three people going to the cineplex downtown"
+                "i need an uber to come to my work at 5pm for three people going to the cineplex downtown",
+                "i need an uber to come to my work at 5pm for three people going to the cineplex downtown",
+                "i need an uber please"
             ],
             "requests": [
                 "can you send me an uber to go to a restaurant in downtown phoenix",
@@ -6969,9 +6969,9 @@
         {
             "cluster_name": "translate hello",
             "representative_sentences": [
-                "translate hello to english",
+                "translate hello to french",
                 "how do you say hello in french",
-                "translate hello to french"
+                "translate hello to english"
             ],
             "requests": [
                 "i need to know how to say hello in france",
@@ -7011,9 +7011,9 @@
         {
             "cluster_name": "schedule meeting",
             "representative_sentences": [
-                "tell me how do i schedule a meeting",
-                "would you please schedule a meeting room for 4:00 on thursday",
-                "please tell me if there are meeting rooms available between 9:00 am and 11:00 am"
+                "i want to schedule a meeting with tom for 6pm",
+                "please tell me if there are meeting rooms available between 9:00 am and 11:00 am",
+                "tell me how do i schedule a meeting"
             ],
             "requests": [
                 "make sure i get a meeting room for 9am on friday",
@@ -7171,7 +7171,7 @@
         {
             "cluster_name": "paper plates",
             "representative_sentences": [
-                "i'm out of paper plates so will you order me some more",
+                "i would like you to buy me some paper plates",
                 "i'm out of milk so you will order me some more",
                 "i need you to order some more lysol for me,please"
             ],
@@ -7205,8 +7205,8 @@
         {
             "cluster_name": "on the tv",
             "representative_sentences": [
-                "set the tv on",
                 "turn on the tv please",
+                "set the tv on",
                 "tv on turn"
             ],
             "requests": [
@@ -7256,8 +7256,8 @@
             "cluster_name": "eat tonight",
             "representative_sentences": [
                 "do you know of any good restaurants",
-                "where can i go to eat",
-                "where should i go to eat tonight"
+                "where should i go to eat tonight",
+                "where can i go to eat"
             ],
             "requests": [
                 "i am hungry and need a restaurant suggestion",
@@ -7316,8 +7316,8 @@
             "cluster_name": "scheduled to board",
             "representative_sentences": [
                 "i wish to know when my flight will land",
-                "when is my flight scheduled to board",
-                "when is boarding scheduled"
+                "when is boarding scheduled",
+                "when is my flight scheduled to board"
             ],
             "requests": [
                 "when is boarding scheduled",
@@ -7406,9 +7406,9 @@
         {
             "cluster_name": "engine light",
             "representative_sentences": [
-                "i need someone to look at my car because my check engine light is on",
+                "the check engine light is on and i need a mechanic",
                 "my check engine light is on, i need someone to look at it",
-                "i need you to find a mechanic for my check engine light"
+                "i need someone to look at my car because my check engine light is on"
             ],
             "requests": [
                 "can i get someone to look at my check engine light that is on",
@@ -7457,9 +7457,9 @@
         {
             "cluster_name": "temperature at ac",
             "representative_sentences": [
-                "what is the temperature on the ac",
-                "could you tell me the temperature of the ac",
-                "what is the temperature the ac display is showing"
+                "what temp is the ac at",
+                "what is the ac temperature",
+                "what is it at, the ac temperature"
             ],
             "requests": [
                 "what is it like the temperature at ac",
@@ -7487,9 +7487,9 @@
         {
             "cluster_name": "something please",
             "representative_sentences": [
-                "can you buy something",
+                "i want to make a purchase",
                 "i want to buy something",
-                "i want to make a purchase"
+                "can you buy something"
             ],
             "requests": [
                 "can you buy something",
@@ -7512,9 +7512,9 @@
         {
             "cluster_name": "many calories",
             "representative_sentences": [
-                "how many calories are in cookies",
                 "how many calories are there in a scoop of chocolate ice cream",
-                "what are the calories in a cookie"
+                "what are the calories in a cookie",
+                "how many calories are in cookies"
             ],
             "requests": [
                 "how many calories does a scoop of chocolate ice cream contain",
@@ -7547,9 +7547,9 @@
         {
             "cluster_name": "rock playlist",
             "representative_sentences": [
-                "play rock playlist",
+                "i want to hear my rock playlist",
                 "rock playlist please",
-                "i want to hear my rock playlist"
+                "play rock playlist"
             ],
             "requests": [
                 "play rock playlist",
@@ -7578,9 +7578,9 @@
         {
             "cluster_name": "many teaspoons",
             "representative_sentences": [
-                "tell me the conversion between tablespoons and cups",
-                "how many teaspoons in a cup",
-                "how many tablespoons and teaspoons is one cup"
+                "how many tablespoons are in a cup",
+                "i need to know the conversion between tablespoons and teaspoons",
+                "how many teaspoons is one tablespoon"
             ],
             "requests": [
                 "how many teaspoons in a cup",
@@ -7681,9 +7681,9 @@
         {
             "cluster_name": "calculate the square root",
             "representative_sentences": [
-                "find the square root of 1243435",
                 "what is the square root of 36",
-                "what is the square root of 10294"
+                "what is the square root of 10294",
+                "find square root of 453"
             ],
             "requests": [
                 "what is the square root of sixteen",
@@ -7741,8 +7741,8 @@
             "cluster_name": "play some music",
             "representative_sentences": [
                 "play some music",
-                "start playing some music",
-                "play a song"
+                "play a song",
+                "start playing some music"
             ],
             "requests": [
                 "start up some music",
@@ -7788,8 +7788,8 @@
             "cluster_name": "good reviews",
             "representative_sentences": [
                 "does applebee's have good reviews",
-                "how good are the ratings for applebees",
-                "does applebees have alright reviews"
+                "does applebees have alright reviews",
+                "how good are the ratings for applebees"
             ],
             "requests": [
                 "does applebee's have good reviews",
@@ -7887,9 +7887,9 @@
         {
             "cluster_name": "math problem",
             "representative_sentences": [
+                "how to solve this math problem",
                 "help me with math",
-                "can you do a math problem",
-                "how to solve this math problem"
+                "can you do a math problem"
             ],
             "requests": [
                 "i need you to help me with some math if you can",
@@ -7914,9 +7914,9 @@
         {
             "cluster_name": "cable bill",
             "representative_sentences": [
-                "i need to pay my cable bill",
+                "i must pay my cable bill",
                 "i need to pay my cable bill from my checking account",
-                "make a reminder to pay my cable bill today"
+                "help me pay my cable bill"
             ],
             "requests": [
                 "make a reminder to pay my cable bill today",
@@ -7946,8 +7946,8 @@
             "cluster_name": "hotel room",
             "representative_sentences": [
                 "i need you to find me a hotel with good reviews in phoenix",
-                "get me a hotel room for 4 people from march 1st to 3rd in seattle",
-                "march 20th through the 22nd, please book me a hotel room in manhattan big enough for 10 people"
+                "book me a hotel in pittsburgh near grant street for 3/15 through 3/18",
+                "i will be in lakewood from monday to wednesday and i need a hotel room for 4 people"
             ],
             "requests": [
                 "can you find me a hotel for 2 people on april 1st to 4th in rome",
@@ -8034,9 +8034,9 @@
         {
             "cluster_name": "many pounds",
             "representative_sentences": [
+                "what is 10 ounces in grams, please",
                 "give me kilograms to pounds",
-                "how many pounds are in 10 kilos",
-                "what is 10 ounces in grams, please"
+                "how many pounds are in 10 kilos"
             ],
             "requests": [
                 "give me kilograms to pounds",
@@ -8065,8 +8065,8 @@
         {
             "cluster_name": "convert kilos",
             "representative_sentences": [
-                "how do you convert pounds to kilos",
                 "how do you convert ounces to grams",
+                "how do you convert pounds to kilos",
                 "how do i change pounds into kilograms"
             ],
             "requests": [
@@ -8089,9 +8089,9 @@
         {
             "cluster_name": "play music",
             "representative_sentences": [
+                "play help! by the beatles",
                 "can you play music by the beatles",
-                "i want to hear beatles music",
-                "play help! by the beatles"
+                "i want to hear beatles music"
             ],
             "requests": [
                 "can you play music the beatles",
@@ -8115,9 +8115,9 @@
         {
             "cluster_name": "what is 10 20",
             "representative_sentences": [
+                "what is 22+ 6",
                 "what is 20+ 5",
-                "what is 10 + 20",
-                "what is 22+ 6"
+                "what is 10 + 20"
             ],
             "requests": [
                 "what is 10 + 10",
@@ -8139,9 +8139,9 @@
         {
             "cluster_name": "turn the fan",
             "representative_sentences": [
-                "please turn the fan on",
-                "turn the fan on",
-                "on the fan"
+                "turn the fan on please",
+                "on the fan",
+                "can put fan on"
             ],
             "requests": [
                 "turn the fan on please",
@@ -8194,9 +8194,9 @@
         {
             "cluster_name": "cat trivia",
             "representative_sentences": [
-                "show me trivia about cats",
                 "i want to learn an interesting fact about cats",
-                "read me cat trivia"
+                "read me cat trivia",
+                "show me trivia about cats"
             ],
             "requests": [
                 "what would be a fun fact about cats",
@@ -8215,9 +8215,9 @@
         {
             "cluster_name": "what is 13 times",
             "representative_sentences": [
-                "what's 47 times 83",
+                "what is 13 times 45",
                 "what is 562 times 400",
-                "what is 13 times 45"
+                "what's 47 times 83"
             ],
             "requests": [
                 "what is 250 times 118 times 9",
