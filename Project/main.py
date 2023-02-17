@@ -35,8 +35,8 @@ def suggest_topic(cluster):
     stopwords = ['please','me','my','myself','we','our','ours','ourselves','you','your','yours','yourself','yourselves','he','him','his','himself','she','her','hers','herself','it','its','itself','they','them','their','theirs','themselves','what','which','who','whom','this','that','these','those','am','is','are','was','were','be','been','being','have','has','had','having','do','does','did','doing','a','an','the','and','but','if','or','because','as','until','while','of','at','by','for','with','about','against','between','into','through','during','before','after','above','below','to','from','up','down','in','out','on','off','over','under','again','further','then','once','here','there','when','where','why','how','all','any','both','each','few','more','most','other','some','such','no','nor','not','only','own','same','so','than','too','very','s','t','can','will','just','don','should','now']
     stopwords = ['please']
     #possible_pos_tags = {('VBN', 'IN', 'NN'), ('VB', 'TO', 'DT', 'NN'), ('JJ', 'VBP', 'DT'), ('VB', 'IN', 'DT', 'NN'), ('VB', 'DT', 'NN', 'NN'), ('VBN', 'IN', 'DT', 'NN'), ('WP', 'PRP', 'VBP', '.'),('WP','PRP','VBP'), ('VB', 'RB', 'TO', 'NN'), ('RB', 'NNS'), ('JJ', 'NNS'), ('VBN', 'NN'), ('NN', 'TO', 'DT', 'NNS'), ('VBN', 'TO', 'NN'), ('NN', 'NN'), ('VB', 'NNS'), ('NN', 'IN', 'NN'), ('NNS', 'NN'), ('VB', 'DT', 'NN'), ('NN', 'NNS'), ('VBG', 'NN')}
-    possible_pos_tags = {('NNS', 'NN'), ('VB', 'PRP', 'DT', 'NN'), ('VB', 'PRP', 'RB', '.'), ('NN', 'TO', 'PRP$', 'NN'), ('WP', 'VBP', 'PRP', 'JJ', 'IN'), ('WRB', 'MD', 'PRP', 'VB', 'PRP'), ('NN', 'PRP$', 'NN'), ('VBN', 'NN'), ('VBD', 'PRP', 'PRP$', 'NN'), ('WP', 'MD', 'PRP', 'VB'), ('NN', 'NN', 'TO', 'NNS'), ('NN', 'IN', 'DT', 'NN'), ('VBG', 'IN', 'PRP$', 'NN'), ('NN', 'NNS', 'JJ'), ('VB', 'PRP', 'NNS'), ('VB', 'DT', 'NNS'), ('VB', 'JJR'), ('JJ', 'IN', 'NN'), ('VB', 'TO', 'VB'), ('JJ', 'NN'), ('VBN', 'PRP$', 'NN'), ('VB', 'RP', 'PRP$', 'NN'), ('NN', 'DT', 'NN'), ('VB', 'PRP', 'DT', 'NNS'), ('VB', 'IN', 'PRP$', 'NN'), ('VBG', 'IN', 'MD', 'CD'), ('VBD', 'PRP$', 'NN'), ('NN', 'IN', 'NN'), ('VBG', 'NN'), ('VB', 'WP', 'NN'), ('JJR', 'NN'), ('VB', 'PRP$', 'NN'), ('VBG', 'IN', 'IN', 'NN'), ('VB', 'VBG', 'IN'), ('WP', 'VBZ', 'CD', 'NNS', 'CD'), ('JJ', 'NNS'), ('RB', 'NN'), ('WP', 'VBZ', 'RP', 'IN', 'PRP$', 'NN'), ('VB', 'WRB', 'PRP$', 'NN'), ('PRP', 'VBP', 'VBG', 'RB', 'RB'), ('VBG', 'PRP$', 'NN'), ('WP', 'VBZ', 'CD', 'CD'), ('VBN', 'IN', 'PRP$', 'NN'), ('VBZ', 'NN', 'NN'), ('NN', 'JJ'), ('NN', 'NN'), ('NN', 'IN', 'PRP$', 'NN'), ('VB', 'NN'), ('NN', 'IN', 'NNS'), ('VB', 'PRP', 'PRP$', 'NN'), ('WP', 'VBZ', 'DT', 'NN', 'CD', 'NNS', 'IN', 'RB'), ('VB', 'PRP$', 'NNS'), ('IN', 'DT', 'NNS'), ('VB', 'IN', 'DT', 'NNS'), ('VB', 'PRP', 'NN'), ('VB', 'DT', 'JJ'), ('VB', 'DT', 'NN'), ('NN', 'VBG'), ('VB', 'WRB', 'JJ'), ('NN', 'NNS')} 
-    c_vec = CountVectorizer(ngram_range=(2,4), stop_words=stopwords)
+    possible_pos_tags = {('NNS', 'NN'), ('VB', 'PRP', 'DT', 'NN'), ('VB', 'PRP', 'RB', '.'), ('NN', 'TO', 'PRP$', 'NN'), ('WP', 'VBP', 'PRP', 'JJ', 'IN'), ('WRB','JJ','NNS'), ('WRB', 'MD', 'PRP', 'VB', 'PRP'), ('NN', 'PRP$', 'NN'), ('VBN', 'NN'),('VBN', 'NN', 'NN'), ('VBD', 'PRP', 'PRP$', 'NN'), ('WP', 'MD', 'PRP', 'VB'), ('NN', 'NN', 'TO', 'NNS'), ('NN', 'IN', 'DT', 'NN'), ('VBG', 'IN', 'PRP$', 'NN'), ('VBG','IN','RB'), ('NN', 'NNS', 'JJ'), ('VB', 'PRP', 'NNS'), ('VB', 'DT', 'NNS'), ('VB', 'JJR'), ('JJ', 'IN', 'NN'), ('VB', 'TO', 'VB'), ('JJ', 'NN'), ('VBN', 'PRP$', 'NN'), ('VB', 'RP', 'PRP$', 'NN'), ('NN', 'DT', 'NN'), ('VB', 'PRP', 'DT', 'NNS'), ('VB', 'IN', 'PRP$', 'NN'), ('VBG', 'IN', 'MD', 'CD'), ('VBD', 'PRP$', 'NN'), ('NN', 'IN', 'NN'), ('VBG', 'NN'), ('VB', 'WP', 'NN'), ('JJR', 'NN'), ('VB', 'PRP$', 'NN'), ('VBG', 'IN', 'IN', 'NN'), ('VB', 'VBG', 'IN'), ('WP', 'VBZ', 'CD', 'NNS', 'CD'), ('JJ', 'NNS'), ('RB', 'NN'), ('WP', 'VBZ', 'RP', 'IN', 'PRP$', 'NN'), ('VB', 'WRB', 'PRP$', 'NN'), ('PRP', 'VBP', 'VBG', 'RB', 'RB'), ('VBG', 'PRP$', 'NN'), ('WP', 'VBZ', 'CD', 'CD'), ('VBN', 'IN', 'PRP$', 'NN'), ('VBZ', 'NN', 'NN'), ('NN', 'JJ'), ('NN', 'NN'), ('NN', 'IN', 'PRP$', 'NN'), ('VB', 'NN'), ('NN', 'IN', 'NNS'), ('VB', 'PRP', 'PRP$', 'NN'), ('WP', 'VBZ', 'DT', 'NN', 'CD', 'NNS', 'IN', 'RB'), ('VB', 'PRP$', 'NNS'), ('IN', 'DT', 'NNS'), ('VB', 'IN', 'DT', 'NNS'), ('VB', 'PRP', 'NN'), ('VB', 'DT', 'JJ'), ('VB', 'DT', 'NN'), ('NN', 'VBG'), ('VB', 'WRB', 'JJ'), ('NN', 'NNS')} 
+    c_vec = CountVectorizer(ngram_range=(2,5), stop_words=stopwords)
 
     # matrix of ngrams
     ngrams = c_vec.fit_transform(requests)
@@ -55,23 +55,24 @@ def suggest_topic(cluster):
     # heading is prioritized based on num of appearnces in requests and length of the topics - prefer longer topic names over shorter
     heading = None  # holds the current best heading 
     for count, ngram in ngram_sorted:
-        if heading is not None and float(count)/heading[0] < 0.7:
-            #print(f'chosen heading "{heading[1]}" | existed after seeing "{ngram}" count ratio {float(count)/heading[0]}')
-            return
+        if heading is not None and float(count)/heading['count'] < 0.65:
+            title = heading['title']
+            print(f'heading "{title}" was chosen | existed after seeing "{ngram}" count ratio {float(count)/heading["count"]}')
+            return title
 
         tokenized_ngram = nltk.word_tokenize(ngram)
         word_count = len(tokenized_ngram)
         pos_tags = [tagging[1] for tagging in nltk.pos_tag(tokenized_ngram)]
         if tuple(pos_tags) in possible_pos_tags:    
             if heading is None:     
+                cluster['cluster_name'] = ngram        
+                heading ={'title': ngram, 'word_count': word_count, 'count': count}
                 #print(f'possible heading "{ngram}" counted {count} times. Tokens:{tokenized_ngram} POS tags: {pos_tags}')
-                cluster["cluster_name"] = ngram        
-                heading = (count,ngram,word_count)
-            elif word_count > heading[2]: 
-                #print(f'heading replaced with "{ngram}" counted {count} times. Tokens:{tokenized_ngram} POS tags: {pos_tags}')
 
+            elif word_count > heading['word_count']: 
+                #print(f'heading replaced with "{ngram}" counted {count} times. Tokens:{tokenized_ngram} POS tags: {pos_tags}')
                 cluster["cluster_name"] = ngram        
-                heading = (count,ngram,word_count)
+                heading = {'title': ngram, 'word_count': word_count, 'count': count}
 
     # heading was not matched to POS tagging              
     if heading is None:            
@@ -160,7 +161,8 @@ if __name__ == '__main__':
                 
     print(f'number of different pos-tagging found in solution {len(tags)}')
     print('{',f'{tags}','}')          
-
+    print(nltk.pos_tag(nltk.word_tokenize("returning from abroad")))
+    
     # cluster unrecognized requests to chatbots and analyze
     analyze_unrecognized_requests(config['data_file'],
                                   config['output_file'],
