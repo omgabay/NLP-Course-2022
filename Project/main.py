@@ -50,6 +50,7 @@ def suggest_topic(cluster):
     ngram_sorted = sorted([(count_values[i],ngram) for ngram,i in vocab.items()], key= lambda req:len(req[1].split()), reverse=True)
     ngram_sorted.sort(key=lambda req : req[0], reverse=True)
     print(ngram_sorted[:5])
+
  
     # heading is prioritized based on num of appearnces in requests and length of the topics - prefer longer topic names over shorter
     heading = None  # holds the current best heading 
@@ -68,6 +69,7 @@ def suggest_topic(cluster):
                 heading = (count,ngram,word_count)
             elif word_count > heading[2]: 
                 #print(f'heading replaced with "{ngram}" counted {count} times. Tokens:{tokenized_ngram} POS tags: {pos_tags}')
+
                 cluster["cluster_name"] = ngram        
                 heading = (count,ngram,word_count)
 
@@ -78,12 +80,13 @@ def suggest_topic(cluster):
 
 model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
+
 def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
     df = pd.read_csv(data_file)
     data = df["request"].to_numpy()
-    min_size = int(min_size)
-   
 
+    min_size = int(min_size) 
+    
     embeddings = model.encode(data, batch_size=64, show_progress_bar=True, convert_to_tensor=True)
     #embeddings = embeddings /  np.linalg.norm(embeddings, axis=1, keepdims=True)
 
@@ -139,6 +142,7 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
     print(f'Best result with threshold {best_threshold}')      
 
 
+
 if __name__ == '__main__':
     with open('./Project/config.json', 'r') as json_file:
         config = json.load(json_file)
@@ -149,9 +153,10 @@ if __name__ == '__main__':
         solution = json.load(output)
         for cluster in solution["cluster_list"]:
             clust_name = cluster["cluster_name"]
-            pos_tags = [tagging[1] for tagging in nltk.pos_tag(nltk.word_tokenize(clust_name))]
-            tags.add(tuple(pos_tags))
-            print(pos_tags,clust_name)  
+            pos_tags = tuple([tagging[1] for tagging in nltk.pos_tag(nltk.word_tokenize(clust_name))])
+            if pos_tags not in tags: 
+                print(pos_tags,clust_name)  
+            tags.add(pos_tags)
                 
     print(f'number of different pos-tagging found in solution {len(tags)}')
     print('{',f'{tags}','}')          
