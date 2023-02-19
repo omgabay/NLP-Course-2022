@@ -32,6 +32,7 @@ def suggest_topic_take2(cluster, debug=False):
     ngrams = c_vec.fit_transform(requests)
     # count frequency of ngrams
     count_values = ngrams.toarray().sum(axis=0)
+
     # list of ngrams
     vocab = c_vec.vocabulary_    
 
@@ -41,8 +42,7 @@ def suggest_topic_take2(cluster, debug=False):
 
     # fetch repsentative of cluster 
     repsentative_sents = cluster["representative_sentences"]
-    reps_embedded = model.encode(repsentative_sents,convert_to_tensor=True)
-   
+    reps_embedded = model.encode(repsentative_sents,convert_to_tensor=True)  
 
 
     # sort ngrams by their respective count
@@ -55,15 +55,16 @@ def suggest_topic_take2(cluster, debug=False):
         score = 0.0
         ngram_embedded = model.encode(ngram,convert_to_tensor=True)
         for rep_sentence in reps_embedded: 
-            score += util.cos_sim(rep_sentence,ngram_embedded)
-        score /= len(repsentative_sents)
+            score = max(score, util.cos_sim(rep_sentence,ngram_embedded))
+            #score += util.cos_sim(rep_sentence,ngram_embedded)
+        #score /= len(repsentative_sents)
         if score > best_score:
             heading, best_score = ngram, score      
 
     if heading is not None:  
         cluster["cluster_name"] = heading 
         if debug:
-            print(f'heading "{cluster["cluster_name"]}" was chosen reps:{repsentative_sents}')
+            print(f'heading "{cluster["cluster_name"]}" was chosen')
     else:           
         cluster["cluster_name"] = ngram_sorted[0][1]   
         if debug:
@@ -73,9 +74,7 @@ def suggest_topic_take2(cluster, debug=False):
 
 def suggest_topic(cluster, debug=False):
     requests = [request.strip() for request in cluster["requests"] if len(request.split()) > 1]
-    stopwords = ['please','me','my','myself','we','our','ours','ourselves','you','your','yours','yourself','yourselves','he','him','his','himself','she','her','hers','herself','it','its','itself','they','them','their','theirs','themselves','what','which','who','whom','this','that','these','those','am','is','are','was','were','be','been','being','have','has','had','having','do','does','did','doing','a','an','the','and','but','if','or','because','as','until','while','of','at','by','for','with','about','against','between','into','through','during','before','after','above','below','to','from','up','down','in','out','on','off','over','under','again','further','then','once','here','there','when','where','why','how','all','any','both','each','few','more','most','other','some','such','no','nor','not','only','own','same','so','than','too','very','s','t','can','will','just','don','should','now']
     stopwords = ['please']
-    #possible_pos_tags = {('VBN', 'IN', 'NN'), ('VB', 'TO', 'DT', 'NN'), ('JJ', 'VBP', 'DT'), ('VB', 'IN', 'DT', 'NN'), ('VB', 'DT', 'NN', 'NN'), ('VBN', 'IN', 'DT', 'NN'), ('WP', 'PRP', 'VBP', '.'),('WP','PRP','VBP'), ('VB', 'RB', 'TO', 'NN'), ('RB', 'NNS'), ('JJ', 'NNS'), ('VBN', 'NN'), ('NN', 'TO', 'DT', 'NNS'), ('VBN', 'TO', 'NN'), ('NN', 'NN'), ('VB', 'NNS'), ('NN', 'IN', 'NN'), ('NNS', 'NN'), ('VB', 'DT', 'NN'), ('NN', 'NNS'), ('VBG', 'NN')}
     possible_pos_tags = {('NNS', 'NN'), ('VB', 'PRP', 'DT', 'NN'), ('VB', 'PRP', 'RB', '.'), ('NN', 'TO', 'PRP$', 'NN'), ('WP', 'VBP', 'PRP', 'JJ', 'IN'), ('WRB','JJ','NNS'), ('WRB', 'MD', 'PRP', 'VB', 'PRP'), ('NN', 'PRP$', 'NN'), ('VBN', 'NN'),('VBN', 'NN', 'NN'), ('VBD', 'PRP', 'PRP$', 'NN'), ('WP', 'MD', 'PRP', 'VB'), ('NN', 'NN', 'TO', 'NNS'), ('NN', 'IN', 'DT', 'NN'), ('VBG', 'IN', 'PRP$', 'NN'), ('VBG','IN','RB'), ('NN', 'NNS', 'JJ'), ('VB', 'PRP', 'NNS'), ('VB', 'DT', 'NNS'), ('VB', 'JJR'), ('JJ', 'IN', 'NN'), ('VB', 'TO', 'VB'), ('JJ', 'NN'), ('VBN', 'PRP$', 'NN'), ('VB', 'RP', 'PRP$', 'NN'), ('NN', 'DT', 'NN'), ('VB', 'PRP', 'DT', 'NNS'), ('VB', 'IN', 'PRP$', 'NN'), ('VBG', 'IN', 'MD', 'CD'), ('VBD', 'PRP$', 'NN'), ('NN', 'IN', 'NN'), ('VBG', 'NN'), ('VB', 'WP', 'NN'), ('JJR', 'NN'), ('VB', 'PRP$', 'NN'), ('VBG', 'IN', 'IN', 'NN'), ('VB', 'VBG', 'IN'), ('WP', 'VBZ', 'CD', 'NNS', 'CD'), ('JJ', 'NNS'), ('RB', 'NN'), ('WP', 'VBZ', 'RP', 'IN', 'PRP$', 'NN'), ('VB', 'WRB', 'PRP$', 'NN'), ('PRP', 'VBP', 'VBG', 'RB', 'RB'), ('VBG', 'PRP$', 'NN'), ('WP', 'VBZ', 'CD', 'CD'), ('VBN', 'IN', 'PRP$', 'NN'), ('VBZ', 'NN', 'NN'), ('NN', 'JJ'), ('NN', 'NN'), ('NN', 'IN', 'PRP$', 'NN'), ('VB', 'NN'), ('NN', 'IN', 'NNS'), ('VB', 'PRP', 'PRP$', 'NN'), ('WP', 'VBZ', 'DT', 'NN', 'CD', 'NNS', 'IN', 'RB'), ('VB', 'PRP$', 'NNS'), ('IN', 'DT', 'NNS'), ('VB', 'IN', 'DT', 'NNS'), ('VB', 'PRP', 'NN'), ('VB', 'DT', 'JJ'), ('VB', 'DT', 'NN'), ('NN', 'VBG'), ('VB', 'WRB', 'JJ'), ('NN', 'NNS')}
     c_vec = CountVectorizer(ngram_range=(2,5), stop_words=stopwords)
 
@@ -127,80 +126,62 @@ def suggest_topic(cluster, debug=False):
         if debug: 
             print('heading was not found by common method heading=', cluster["cluster_name"])             
 
-#model = SentenceTransformer('paraphrase-MiniLM-L6-v2') #3rd
+#model = SentenceTransformer('paraphrase-MiniLM-L12-v2')
 #model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2') #2nd best
-#model = SentenceTransformer('all-MiniLM-L12-v2')  # best
-models = [
-'sentence-transformers/all-MiniLM-L12-v2',
-'sentence-transformers/all-MiniLM-L6-v2',
-'paraphrase-MiniLM-L6-v2'
-]
-models = ['sentence-transformers/all-MiniLM-L12-v2']
+model = SentenceTransformer('all-MiniLM-L12-v2')  # best
+
+
 def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
     df = pd.read_csv(data_file)
     data = df["request"].to_numpy()
-
-    min_size = int(min_size)
-
-  
-    for model_name in models: 
-        print("================================================================")
-        print(f"Running community detection with model {model_name}")
-        model = SentenceTransformer(model_name) 
-        embeddings = model.encode(data, batch_size=64, show_progress_bar=True, convert_to_tensor=True)
-        print('shape of embeddings:',embeddings.shape)
+    min_size = int(min_size)    
+    
+    embeddings = model.encode(data, batch_size=64, show_progress_bar=True, convert_to_tensor=True)
+    print('shape of embeddings:',embeddings.shape)
 
 
-        '''
-        Two parameters to tune in Community Detection:
-        min_cluster_size: Only consider cluster that have at least min_size elements
-        threshold: Consider sentence pairs with a cosine-similarity larger than threshold as similar
-        '''       
-        clusters_output = util.community_detection(embeddings, min_community_size=min_size, threshold=0.66)
+    '''
+    Two parameters to tune in Community Detection:
+    min_cluster_size: Only consider cluster that have at least min_size elements
+    threshold: Consider sentence pairs with a cosine-similarity larger than threshold as similar
+    '''       
+    clusters_output = util.community_detection(embeddings, min_community_size=min_size, threshold=0.66)
 
-        clustered_pts = [] 
-        for i, cluster in enumerate(clusters_output):           
-            clustered_pts.extend(cluster)           
+    clustered_pts = [] 
+    for i, cluster in enumerate(clusters_output):                   
+        clustered_pts.extend(cluster)           
+    
+    unclustered = [request for i,request in enumerate(data) if i not in clustered_pts]
+
+    # Number of clusters in labels, ignoring noise if present.
+    n_clusters = len(clusters_output)    
+
+    
+    clusters = [{"cluster_name": f'cluster{i+1}', "representative_sentences" : [], "requests" : []} for i in range(n_clusters)]
+    for i,cluster in enumerate(clusters_output): 
+        for request_id in cluster:        
+            clusters[i]['requests'].append(data[request_id])
         
-        unclustered = [request for i,request in enumerate(data) if i not in clustered_pts]
 
-        # Number of clusters in labels, ignoring noise if present.
-        n_clusters = len(clusters_output)
+    # Part 2 - finding representative requests for each cluster
+    find_reps_for_cluster(clusters, int(num_rep))  
+
+    #Part 3 - suggest topic for cluster 
+    for cluster in clusters: 
+        suggest_topic_take2(cluster,True)      
+
+    # create output JSON object and write to a file 
+    outputObj = {"cluster_list" : clusters, "unclustered" : unclustered}
+    json_object = json.dumps(outputObj, indent=4)
+    with open(output_file, "w+") as outfile:
+        outfile.write(json_object)
      
-    
-       
-        clusters = [{"cluster_name": f'cluster{i+1}', "representative_sentences" : [], "requests" : []} for i in range(n_clusters)]
-        for i,cluster in enumerate(clusters_output): 
-            for request_id in cluster:        
-                clusters[i]['requests'].append(data[request_id])
-          
-
-        # Part 2 - finding representative requests for each cluster
-        find_reps_for_cluster(clusters, int(num_rep))  
-
-        #Part 3 - suggest topic for cluster 
-        for cluster in clusters: 
-            suggest_topic_take2(cluster,True)      
-
-        # create output JSON object and write to a file 
-        outputObj = {"cluster_list" : clusters, "unclustered" : unclustered}
-        json_object = json.dumps(outputObj, indent=4)
-        with open(output_file, "w+") as outfile:
-            outfile.write(json_object)
-
-        evaluate_clustering(config['example_solution_file'], config['output_file'])
-      
-    print("============================") 
-    
 
 
 
 if __name__ == '__main__':
     with open('./Project/config.json', 'r') as json_file:
-        config = json.load(json_file)
-
-         
-    #print(nltk.pos_tag(nltk.word_tokenize("returning from abroad")))
+        config = json.load(json_file)        
     
     # cluster unrecognized requests to chatbots and analyze
     analyze_unrecognized_requests(config['data_file'],
@@ -209,4 +190,4 @@ if __name__ == '__main__':
                                   config['min_cluster_size'])
 
 
-    #evaluate_clustering(config['example_solution_file'], config['output_file'])
+    evaluate_clustering(config['example_solution_file'], config['output_file'])
