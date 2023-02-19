@@ -26,7 +26,7 @@ def find_reps_for_cluster(clusters, num_reps):
         closest, _ = pairwise_distances_argmin_min(kmeans.cluster_centers_, embeddings)
         cluster["representative_sentences"].extend([data[idx] for idx in closest])   
 
-def suggest_topic_take2(cluster, debug=False): 
+def suggest_topic_updated(cluster, debug=False): 
     requests = [request.strip() for request in cluster["requests"] if len(request.split()) > 1]
     c_vec = CountVectorizer(ngram_range=(2,5))
     ngrams = c_vec.fit_transform(requests)
