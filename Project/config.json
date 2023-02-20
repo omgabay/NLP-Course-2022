@@ -1,7 +1,7 @@
 {
-  "data_file": "./data/dataset2-unrecognized-requests.csv",
-  "output_file": "./output/dataset2-clustering-min-size-10.json",
-  "example_solution_file": "./output/dataset2-clustering-min-size-10-solution.json",
+  "data_file": "./Project/data/dataset2-unrecognized-requests.csv",
+  "output_file": "./Project/output/dataset2-clustering-min-size-10.json",
+  "example_solution_file": "./Project/output/dataset2-clustering-min-size-10-solution.json",
   "num_of_representatives": "3",
   "min_cluster_size": "10"
 }

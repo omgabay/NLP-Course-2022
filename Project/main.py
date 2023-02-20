@@ -185,7 +185,7 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
 
 
 if __name__ == '__main__':
-    with open('config.json', 'r') as json_file:
+    with open('./Project/config.json', 'r') as json_file:
         config = json.load(json_file)        
     
     # cluster unrecognized requests to chatbots and analyze
