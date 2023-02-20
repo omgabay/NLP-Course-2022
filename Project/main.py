@@ -7,7 +7,6 @@ from sklearn.cluster import KMeans
 from sklearn.feature_extraction.text import CountVectorizer
 import nltk
 from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.preprocessing import StandardScaler, normalize
 from warnings import simplefilter
 from sklearn.exceptions import ConvergenceWarning
 simplefilter("ignore", category=ConvergenceWarning)
@@ -27,10 +26,13 @@ def find_reps_for_cluster(clusters, num_reps):
         cluster["representative_sentences"].extend([data[idx] for idx in closest])   
 
 def suggest_topic_updated(cluster, debug=False): 
+    # pull out requests from cluster
     requests = [request.strip() for request in cluster["requests"] if len(request.split()) > 1]
+    
+    # count n-grams in the list of requests 
     c_vec = CountVectorizer(ngram_range=(2,5))
     ngrams = c_vec.fit_transform(requests)
-    # count frequency of ngrams
+    # counts ngrams
     count_values = ngrams.toarray().sum(axis=0)
 
     # list of ngrams
@@ -136,6 +138,7 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
     data = df["request"].to_numpy()
     min_size = int(min_size)    
     
+    # encode our requests dataset using sentence transformer 
     embeddings = model.encode(data, batch_size=64, show_progress_bar=True, convert_to_tensor=True)
     print('shape of embeddings:',embeddings.shape)
 
@@ -147,18 +150,21 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
     '''       
     clusters_output = util.community_detection(embeddings, min_community_size=min_size, threshold=0.66)
 
+    # we add to clustered_pts all the requests that'd been clustered   
     clustered_pts = [] 
     for i, cluster in enumerate(clusters_output):                   
         clustered_pts.extend(cluster)           
     
+    # create a list of unclustered requests 
     unclustered = [request for i,request in enumerate(data) if i not in clustered_pts]
 
-    # Number of clusters in labels, ignoring noise if present.
+    # Number of clusters found 
     n_clusters = len(clusters_output)    
 
     
     clusters = [{"cluster_name": f'cluster{i+1}', "representative_sentences" : [], "requests" : []} for i in range(n_clusters)]
     for i,cluster in enumerate(clusters_output): 
+        # add request data to cluster 
         for request_id in cluster:        
             clusters[i]['requests'].append(data[request_id])
         
@@ -166,9 +172,9 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
     # Part 2 - finding representative requests for each cluster
     find_reps_for_cluster(clusters, int(num_rep))  
 
-    #Part 3 - suggest topic for cluster 
     for cluster in clusters: 
-        suggest_topic_take2(cluster,True)      
+        #Part 3 - suggest topic for cluster 
+        suggest_topic_updated(cluster,True)      
 
     # create output JSON object and write to a file 
     outputObj = {"cluster_list" : clusters, "unclustered" : unclustered}
@@ -180,7 +186,7 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
 
 
 if __name__ == '__main__':
-    with open('./Project/config.json', 'r') as json_file:
+    with open('config.json', 'r') as json_file:
         config = json.load(json_file)        
     
     # cluster unrecognized requests to chatbots and analyze
