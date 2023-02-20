@@ -6,7 +6,6 @@ from sklearn.metrics import pairwise_distances_argmin_min
 from sklearn.cluster import KMeans
 from sklearn.feature_extraction.text import CountVectorizer
 import nltk
-from sklearn.feature_extraction.text import CountVectorizer
 from warnings import simplefilter
 from sklearn.exceptions import ConvergenceWarning
 simplefilter("ignore", category=ConvergenceWarning)
@@ -129,8 +128,8 @@ def suggest_topic(cluster, debug=False):
             print('heading was not found by common method heading=', cluster["cluster_name"])             
 
 #model = SentenceTransformer('paraphrase-MiniLM-L12-v2')
-#model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2') #2nd best
-model = SentenceTransformer('all-MiniLM-L12-v2')  # best
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2') #2nd best
+#model = SentenceTransformer('all-MiniLM-L12-v2')  # best
 
 
 def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
@@ -139,7 +138,7 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
     min_size = int(min_size)    
     
     # encode our requests dataset using sentence transformer 
-    embeddings = model.encode(data, batch_size=64, show_progress_bar=True, convert_to_tensor=True)
+    embeddings = model.encode(data, batch_size=128, show_progress_bar=True, convert_to_tensor=True)
     print('shape of embeddings:',embeddings.shape)
 
 
