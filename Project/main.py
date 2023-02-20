@@ -13,13 +13,18 @@ nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 
 
-def find_reps_for_cluster(clusters,clusters_output, embeddings,  num_reps):
-    #model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+'''
+    the function receives 4 parameters 
+    1) clusters - contains the requests - text input 
+    2) clusters_output - the ouput of the clustering algorithm with cluster id in each cluster
+    3) embedding - sentence embeddings of the requests 
+    4) num_reps - num of representative to find (duplicate may occur in small clusters)
+'''
+def find_reps_for_cluster(clusters,clusters_output, embeddings,  num_reps):   
     
     kmeans = KMeans(n_clusters=num_reps, n_init=3)
     for clust_id,cluster in enumerate(clusters): 
-        #data = [request for request in cluster["requests"]]
-        #embeddings = model.encode(data)
+        
         clust_embeddings = [embeddings[req_id].numpy() for req_id in clusters_output[clust_id]]  
         kmeans.fit(clust_embeddings)
         kmeans.predict(clust_embeddings)     
@@ -72,8 +77,9 @@ def suggest_topic_updated(cluster,debug=False):
             print('heading was not found by common method heading=', cluster["cluster_name"])       
    
     
-
+# this is the old-version of finding topic for cluster using POS tags 
 def suggest_topic(cluster, debug=False):
+    # fetch requests 
     requests = [request.strip() for request in cluster["requests"] if len(request.split()) > 1]
     stopwords = ['please']
     possible_pos_tags = {('NNS', 'NN'), ('VB', 'PRP', 'DT', 'NN'), ('VB', 'PRP', 'RB', '.'), ('NN', 'TO', 'PRP$', 'NN'), ('WP', 'VBP', 'PRP', 'JJ', 'IN'), ('WRB','JJ','NNS'), ('WRB', 'MD', 'PRP', 'VB', 'PRP'), ('NN', 'PRP$', 'NN'), ('VBN', 'NN'),('VBN', 'NN', 'NN'), ('VBD', 'PRP', 'PRP$', 'NN'), ('WP', 'MD', 'PRP', 'VB'), ('NN', 'NN', 'TO', 'NNS'), ('NN', 'IN', 'DT', 'NN'), ('VBG', 'IN', 'PRP$', 'NN'), ('VBG','IN','RB'), ('NN', 'NNS', 'JJ'), ('VB', 'PRP', 'NNS'), ('VB', 'DT', 'NNS'), ('VB', 'JJR'), ('JJ', 'IN', 'NN'), ('VB', 'TO', 'VB'), ('JJ', 'NN'), ('VBN', 'PRP$', 'NN'), ('VB', 'RP', 'PRP$', 'NN'), ('NN', 'DT', 'NN'), ('VB', 'PRP', 'DT', 'NNS'), ('VB', 'IN', 'PRP$', 'NN'), ('VBG', 'IN', 'MD', 'CD'), ('VBD', 'PRP$', 'NN'), ('NN', 'IN', 'NN'), ('VBG', 'NN'), ('VB', 'WP', 'NN'), ('JJR', 'NN'), ('VB', 'PRP$', 'NN'), ('VBG', 'IN', 'IN', 'NN'), ('VB', 'VBG', 'IN'), ('WP', 'VBZ', 'CD', 'NNS', 'CD'), ('JJ', 'NNS'), ('RB', 'NN'), ('WP', 'VBZ', 'RP', 'IN', 'PRP$', 'NN'), ('VB', 'WRB', 'PRP$', 'NN'), ('PRP', 'VBP', 'VBG', 'RB', 'RB'), ('VBG', 'PRP$', 'NN'), ('WP', 'VBZ', 'CD', 'CD'), ('VBN', 'IN', 'PRP$', 'NN'), ('VBZ', 'NN', 'NN'), ('NN', 'JJ'), ('NN', 'NN'), ('NN', 'IN', 'PRP$', 'NN'), ('VB', 'NN'), ('NN', 'IN', 'NNS'), ('VB', 'PRP', 'PRP$', 'NN'), ('WP', 'VBZ', 'DT', 'NN', 'CD', 'NNS', 'IN', 'RB'), ('VB', 'PRP$', 'NNS'), ('IN', 'DT', 'NNS'), ('VB', 'IN', 'DT', 'NNS'), ('VB', 'PRP', 'NN'), ('VB', 'DT', 'JJ'), ('VB', 'DT', 'NN'), ('NN', 'VBG'), ('VB', 'WRB', 'JJ'), ('NN', 'NNS')}
@@ -128,8 +134,9 @@ def suggest_topic(cluster, debug=False):
             print('heading was not found by common method heading=', cluster["cluster_name"])             
 
 #model = SentenceTransformer('paraphrase-MiniLM-L12-v2')
-model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2') #2nd best
-#model = SentenceTransformer('all-MiniLM-L12-v2')  # best
+#model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+model = SentenceTransformer('all-MiniLM-L6-v2') 
+#model = SentenceTransformer('all-MiniLM-L12-v2') 
 
 
 def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
@@ -137,17 +144,17 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
     data = df["request"].to_numpy()
     min_size = int(min_size)    
     
-    # encode our requests dataset using sentence transformer 
+    # encode our requests dataset using sentence transformer (sbert)
     embeddings = model.encode(data, batch_size=128, show_progress_bar=True, convert_to_tensor=True)
     print('shape of embeddings:',embeddings.shape)
 
 
     '''
     Two parameters to tune in Community Detection:
-    min_cluster_size: Only consider cluster that have at least min_size elements
+    min_cluster_size: Clusters will have at least min_size elements
     threshold: Consider sentence pairs with a cosine-similarity larger than threshold as similar
     '''       
-    clusters_output = util.community_detection(embeddings, min_community_size=min_size, threshold=0.66)
+    clusters_output = util.community_detection(embeddings, min_community_size=min_size, threshold=0.64)
 
     # we add to clustered_pts all the requests that'd been clustered   
     clustered_pts = [] 
@@ -185,11 +192,11 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
 
 
 
-if __name__ == '__main__':
-    with open('./Project/config.json', 'r') as json_file:
+if __name__ == '__main__': 
+    with open('config.json', 'r') as json_file:
         config = json.load(json_file)        
     
-    # cluster unrecognized requests to chatbots and analyze
+    # cluster unrecognized requests to chatbot and analyze
     analyze_unrecognized_requests(config['data_file'],
                                   config['output_file'],
                                   config['num_of_representatives'],
@@ -197,3 +204,5 @@ if __name__ == '__main__':
 
 
     evaluate_clustering(config['example_solution_file'], config['output_file'])
+
+ 

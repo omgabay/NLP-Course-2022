@@ -49,4 +49,4 @@ def evaluate_clustering(filename1: str, filename2: str):
 
     print(f'rand score: {rand_score(cluster_ids1, cluster_ids2)}')
     print(f'adjusted rand score: {adjusted_rand_score(cluster_ids1, cluster_ids2)}')
-    return rand_score(cluster_ids1, cluster_ids2), adjusted_rand_score(cluster_ids1, cluster_ids2)
+    #print(len(requests1), len(requests2))
