@@ -13,18 +13,20 @@ nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 
 
-def find_reps_for_cluster(clusters, num_reps):
-    model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+def find_reps_for_cluster(clusters,clusters_output, embeddings,  num_reps):
+    #model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+    
     kmeans = KMeans(n_clusters=num_reps, n_init=3)
-    for cluster in clusters: 
-        data = [request for request in cluster["requests"]]
-        embeddings = model.encode(data)
-        kmeans.fit(embeddings)
-        kmeans.predict(embeddings)     
-        closest, _ = pairwise_distances_argmin_min(kmeans.cluster_centers_, embeddings)
-        cluster["representative_sentences"].extend([data[idx] for idx in closest])   
+    for clust_id,cluster in enumerate(clusters): 
+        #data = [request for request in cluster["requests"]]
+        #embeddings = model.encode(data)
+        clust_embeddings = [embeddings[req_id].numpy() for req_id in clusters_output[clust_id]]  
+        kmeans.fit(clust_embeddings)
+        kmeans.predict(clust_embeddings)     
+        closest, _ = pairwise_distances_argmin_min(kmeans.cluster_centers_, clust_embeddings)
+        cluster["representative_sentences"].extend([cluster["requests"][idx] for idx in closest])   
 
-def suggest_topic_updated(cluster, debug=False): 
+def suggest_topic_updated(cluster,debug=False): 
     # pull out requests from cluster
     requests = [request.strip() for request in cluster["requests"] if len(request.split()) > 1]
     
@@ -37,9 +39,7 @@ def suggest_topic_updated(cluster, debug=False):
     # list of ngrams
     vocab = c_vec.vocabulary_    
 
-  
-    # model 
-    model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+
 
     # fetch repsentative of cluster 
     repsentative_sents = cluster["representative_sentences"]
@@ -166,10 +166,11 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
         # add request data to cluster 
         for request_id in cluster:        
             clusters[i]['requests'].append(data[request_id])
+            
         
 
     # Part 2 - finding representative requests for each cluster
-    find_reps_for_cluster(clusters, int(num_rep))  
+    find_reps_for_cluster(clusters,clusters_output,embeddings, int(num_rep))  
 
     for cluster in clusters: 
         #Part 3 - suggest topic for cluster 
