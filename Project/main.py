@@ -5,12 +5,21 @@ from compare_clustering_solutions import evaluate_clustering
 from sklearn.metrics import pairwise_distances_argmin_min
 from sklearn.cluster import KMeans
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics import silhouette_score
+
 import nltk
+import torch
 from warnings import simplefilter
 from sklearn.exceptions import ConvergenceWarning
 simplefilter("ignore", category=ConvergenceWarning)
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
+
+
+from sklearn.manifold import TSNE 
+from sklearn import decomposition
+from sklearn.cluster import AgglomerativeClustering 
+from sklearn.model_selection import GridSearchCV 
 
 
 '''
@@ -138,6 +147,19 @@ def suggest_topic(cluster, debug=False):
 model = SentenceTransformer('all-MiniLM-L6-v2') 
 #model = SentenceTransformer('all-MiniLM-L12-v2') 
 
+def cv_silhouette_scorer(estimator, embeddings):
+  estimator.fit(embeddings)
+  try:
+    cluster_labels = estimator.labels_
+  except AttributeError:
+    cluster_labels = estimator.predict(embeddings)
+  num_labels = len(set(cluster_labels))
+
+  if num_labels == 1 or num_labels ==  embeddings.shape[0]:
+    return -1
+  else:
+    return silhouette_score(embeddings, cluster_labels)
+
 
 def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
     df = pd.read_csv(data_file)
@@ -149,13 +171,60 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
     print('shape of embeddings:',embeddings.shape)
 
 
+    # pca = decomposition.PCA(n_components=70)
+    # embeddings = pca.fit_transform(embeddings)
+    # print(pca.explained_variance_)
+    # dim_reducer = TSNE(n_components=2, perplexity=50)
+    # embeddings = dim_reducer.fit_transform(embeddings)
+    # embeddings =  torch.from_numpy(embeddings)
+    #print('After dim reduction shape of embeddings:',embeddings.shape)
+
     '''
     Two parameters to tune in Community Detection:
     min_cluster_size: Clusters will have at least min_size elements
     threshold: Consider sentence pairs with a cosine-similarity larger than threshold as similar
-    '''       
-    clusters_output = util.community_detection(embeddings, min_community_size=min_size, threshold=0.64)
+    '''  
+    cluster_model = AgglomerativeClustering(
+        n_clusters=None,
+        linkage="average",
+        distance_threshold=0.3,
+        metric='cosine',
+    )  
+    #cluster_model.fit_predict(embeddings)
+    #labels = cluster_model.labels_ 
 
+    tuned_parameters = [{
+        'n_clusters': [None],
+        'distance_threshold': [0.4,0.5,0.6,0.7,0.8,0.9],
+        'linkage': ['average'],
+        'metric': ['cosine'],
+    }]
+    grid_search = GridSearchCV(
+        cluster_model, 
+        tuned_parameters, 
+        scoring=cv_silhouette_scorer,
+        cv = [(slice(None), slice(None))]
+    )
+    grid_search.fit(embeddings)
+
+    labels = grid_search.best_estimator_.labels_
+    print(f'BEST PARAMS: {grid_search.best_params_}') 
+    label_to_cluster = {label: [] for label in set(labels)}
+    for i, label in enumerate(labels):
+        label_to_cluster[label].append(i)
+
+    unclustered = [] 
+    print(len(set(labels)), len(label_to_cluster.keys()))
+    for label in label_to_cluster.keys():
+        if len(label_to_cluster[label]) <= min_size: 
+            unclustered.extend(label_to_cluster[label])
+    label_to_cluster = {label : cluster for label,cluster in label_to_cluster.items() if len(cluster) > min_size}    
+    clusters_output = [cluster for cluster in label_to_cluster.values()]
+    unclustered_size = len(unclustered)
+    clustered_size  = sum([len(cluster) for cluster in clusters_output])
+    print(f'Clustered {clustered_size} Unclustered {len(unclustered)} = {clustered_size + unclustered_size}')
+    # clusters_output = util.community_detection(embeddings, min_community_size=min_size, threshold=0.64)
+    
     # we add to clustered_pts all the requests that'd been clustered   
     clustered_pts = [] 
     for i, cluster in enumerate(clusters_output):                   
@@ -181,7 +250,7 @@ def analyze_unrecognized_requests(data_file, output_file, num_rep, min_size):
 
     for cluster in clusters: 
         #Part 3 - suggest topic for cluster 
-        suggest_topic_updated(cluster,True)      
+        suggest_topic_updated(cluster)      
 
     # create output JSON object and write to a file 
     outputObj = {"cluster_list" : clusters, "unclustered" : unclustered}
